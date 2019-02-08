@@ -101,7 +101,7 @@ var (
 	Definitions map[string]*JSONSchema
 )
 
-// Initialize the global variables
+// init; the global variables
 func init() {
 	Definitions = make(map[string]*JSONSchema)
 }

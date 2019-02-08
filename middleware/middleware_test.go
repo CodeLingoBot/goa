@@ -9,7 +9,7 @@ import (
 	"github.com/goadesign/goa"
 )
 
-// Helper that sets up a "working" service
+// newService; Helper that sets up a "working" service
 func newService(logger goa.LogAdapter) *goa.Service {
 	service := goa.New("test")
 	service.Encoder.Register(goa.NewJSONEncoder, "*/*")
@@ -18,7 +18,7 @@ func newService(logger goa.LogAdapter) *goa.Service {
 	return service
 }
 
-// Creates a test context
+// newContext creates a test context
 func newContext(service *goa.Service, rw http.ResponseWriter, req *http.Request, params url.Values) context.Context {
 	ctrl := service.NewController("test")
 	return goa.NewContext(ctrl.Context, rw, req, params)

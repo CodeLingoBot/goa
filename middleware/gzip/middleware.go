@@ -335,7 +335,7 @@ func Middleware(level int, o ...Option) goa.Middleware {
 	}
 }
 
-// returns true if we've been configured to compress the specific content type.
+// shouldCompress returns true if we've been configured to compress the specific content type.
 func (o options) shouldCompress(contentType string, statusCode int) bool {
 	// If contentTypes is nil we handle all content types.
 	if len(o.contentTypes) > 0 {

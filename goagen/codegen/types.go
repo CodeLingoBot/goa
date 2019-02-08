@@ -27,7 +27,7 @@ var (
 	transformObjectT *template.Template
 )
 
-// Initialize all templates
+// init; all templates
 func init() {
 	var err error
 	fn := template.FuncMap{

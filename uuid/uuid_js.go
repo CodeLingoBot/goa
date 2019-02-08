@@ -71,7 +71,7 @@ func (u *UUID) UnmarshalText(text []byte) (err error) {
 // Used in string method conversion
 const dash byte = '-'
 
-// Returns canonical string representation of UUID:
+// String returns canonical string representation of UUID:
 // xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.
 func (u UUID) String() string {
 	buf := make([]byte, 36)

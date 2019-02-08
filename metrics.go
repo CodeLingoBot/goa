@@ -148,7 +148,7 @@ func SetGauge(key []string, val float32) {
 	GetMetrics().SetGauge(key, val)
 }
 
-// This function is used to make metric names safe for all metric services. Specifically, prometheus does
+// normalizeKeys is used to make metric names safe for all metric services. Specifically, prometheus does
 // not support * or / in metric names.
 func normalizeKeys(key []string) {
 	for i, k := range key {

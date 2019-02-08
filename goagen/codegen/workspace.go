@@ -422,7 +422,7 @@ var altConfigs = []string{
 	".git/config",
 }
 
-// Copied from cmd/go/internal/modload/init.go.
+// findModuleRoot; Copied from cmd/go/internal/modload/init.go.
 func findModuleRoot(dir, limit string, legacyConfigOK bool) (root, file string) {
 	dir = filepath.Clean(dir)
 	dir1 := dir
@@ -472,7 +472,7 @@ var (
 	moduleStr  = []byte("module")
 )
 
-// Copied from cmd/go/internal/modfile/read.go
+// modulePath; Copied from cmd/go/internal/modfile/read.go
 func modulePath(mod []byte) string {
 	for len(mod) > 0 {
 		line := mod

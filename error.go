@@ -349,7 +349,7 @@ func asErrorResponse(err error) *ErrorResponse {
 	return e
 }
 
-// If you're curious - simplifying a bit - the probability of 2 values being equal for n 6-bytes
+// newErrorID; If you're curious - simplifying a bit - the probability of 2 values being equal for n 6-bytes
 // values is n^2 / 2^49. For n = 1 million this gives around 1 chance in 500. 6 bytes seems to be a
 // good trade-off between probability of clashes and length of ID (6 * 4/3 = 8 chars) since clashes
 // are not catastrophic.

@@ -990,7 +990,7 @@ func (m *MediaTypeDefinition) projectIdentifier(view string) string {
 	return mime.FormatMediaType(base, params)
 }
 
-// projectIdentifier computes the projected canonical media type identifier by adding the "view"
+// projectCanonical computes the projected canonical media type identifier by adding the "view"
 // param if the view is not the default view.
 func (m *MediaTypeDefinition) projectCanonical(view string) string {
 	cano := CanonicalIdentifier(m.Identifier)
@@ -1032,7 +1032,7 @@ func (u *UserTypeDefinition) Walk(walker func(*AttributeDefinition) error) error
 	return walk(u.AttributeDefinition, walker, map[string]bool{u.TypeName: true})
 }
 
-// Recursive implementation of the Walk methods. Takes care of avoiding infinite recursions by
+// walk; Recursive implementation of the Walk methods. Takes care of avoiding infinite recursions by
 // keeping track of types that have already been walked.
 func walk(at *AttributeDefinition, walker func(*AttributeDefinition) error, seen map[string]bool) error {
 	if err := walker(at); err != nil {

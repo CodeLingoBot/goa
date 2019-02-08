@@ -27,7 +27,7 @@ var reqID int64
 // Common prefix to all newly created request ids for this process.
 var reqPrefix string
 
-// Initialize common prefix on process startup.
+// init; common prefix on process startup.
 func init() {
 	// algorithm taken from https://github.com/zenazn/goji/blob/master/web/middleware/request_id.go#L44-L50
 	var buf [12]byte

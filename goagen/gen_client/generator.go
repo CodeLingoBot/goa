@@ -718,7 +718,7 @@ func multiComment(text string) string {
 	return strings.Join(nl, "\n")
 }
 
-// gotTypeRefExt computes the type reference for a type in a different package.
+// goTypeRefExt computes the type reference for a type in a different package.
 func goTypeRefExt(t design.DataType, tabs int, pkg string) string {
 	ref := codegen.GoTypeRef(t, nil, tabs, false)
 	if strings.HasPrefix(ref, "*") {

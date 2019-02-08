@@ -333,7 +333,7 @@ func (g *Generator) generateControllers() (err error) {
 	return
 }
 
-// generateControllers iterates through the API resources and generates the low level
+// generateSecurity iterates through the API resources and generates the low level
 // controllers.
 func (g *Generator) generateSecurity() (err error) {
 	if len(g.API.SecuritySchemes) == 0 {

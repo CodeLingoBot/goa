@@ -90,7 +90,7 @@ var _ = Describe("Helpers", func() {
 	})
 })
 
-// Copied from go/build/build.go
+// defaultGOPATH; Copied from go/build/build.go
 func defaultGOPATH() string {
 	env := "HOME"
 	if runtime.GOOS == "windows" {

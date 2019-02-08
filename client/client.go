@@ -89,7 +89,7 @@ func (c *Client) Do(ctx context.Context, req *http.Request) (*http.Response, err
 	return resp, err
 }
 
-// Dump request if needed.
+// dumpRequest; request if needed.
 func (c *Client) dumpRequest(ctx context.Context, req *http.Request) {
 	reqBody, err := dumpReqBody(req)
 	if err != nil {
@@ -126,7 +126,7 @@ func headersToSlice(header http.Header) []interface{} {
 	return res
 }
 
-// Dump request body, strongly inspired from httputil.DumpRequest
+// dumpReqBody; request body, strongly inspired from httputil.DumpRequest
 func dumpReqBody(req *http.Request) ([]byte, error) {
 	if req.Body == nil {
 		return nil, nil
@@ -152,7 +152,7 @@ func dumpReqBody(req *http.Request) ([]byte, error) {
 	return b.Bytes(), err
 }
 
-// Dump response body, strongly inspired from httputil.DumpResponse
+// dumpRespBody; response body, strongly inspired from httputil.DumpResponse
 func dumpRespBody(resp *http.Response) ([]byte, error) {
 	if resp.Body == nil {
 		return nil, nil
@@ -177,7 +177,7 @@ func dumpRespBody(resp *http.Response) ([]byte, error) {
 	return b.Bytes(), nil
 }
 
-// One of the copies, say from b to r2, could be avoided by using a more
+// drainBody; One of the copies, say from b to r2, could be avoided by using a more
 // elaborate trick where the other copy is made during Request/Response.Write.
 // This would complicate things too much, given that these functions are for
 // debugging only.

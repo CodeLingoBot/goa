@@ -343,7 +343,7 @@ func runCommands(root *cobra.Command) {
 	fmt.Println(string(b))
 }
 
-// Lots of assumptions in here, it's OK for what we are doing
+// flagJSON lots of assumptions in here, it's OK for what we are doing
 // Remember to update as goagen commands and flags evolve
 //
 // The flag argument values use variable names that cary semantic:

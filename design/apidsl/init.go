@@ -5,7 +5,7 @@ import (
 	"github.com/goadesign/goa/dslengine"
 )
 
-// Setup API DSL roots.
+// init; Setup API DSL roots.
 func init() {
 	design.Design = design.NewAPIDefinition()
 	design.GeneratedMediaTypes = make(design.MediaTypeRoot)

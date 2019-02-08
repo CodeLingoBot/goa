@@ -272,12 +272,12 @@ func defaultRouteParams(a *design.ActionDefinition) *design.AttributeDefinition 
 	return &design.AttributeDefinition{Type: o, NonZeroAttributes: nz}
 }
 
-// produces a fmt template to render the first route of action.
+// defaultRouteTemplate produces a fmt template to render the first route of action.
 func defaultRouteTemplate(a *design.ActionDefinition) string {
 	return design.WildcardRegex.ReplaceAllLiteralString(a.Routes[0].FullPath(), "/%v")
 }
 
-// return a ',' joined list of Params as a reference to cmd.XFieldName
+// joinRouteParams; return a ',' joined list of Params as a reference to cmd.XFieldName
 // ordered by the required first rules.
 func joinRouteParams(action *design.ActionDefinition, att *design.AttributeDefinition) string {
 	var (
@@ -344,7 +344,7 @@ func joinNames(useNil bool, atts ...*design.AttributeDefinition) string {
 	return strings.Join(elems, ", ")
 }
 
-// resolve non required, non array Param/QueryParam for access via CII flags.
+// flagTypeVal; resolve non required, non array Param/QueryParam for access via CII flags.
 // Some types need convertion from string to 'Type' before calling rich client Commands.
 func flagTypeVal(a *design.AttributeDefinition, key string, field string) string {
 	switch a.Type {
@@ -359,7 +359,7 @@ func flagTypeVal(a *design.AttributeDefinition, key string, field string) string
 	}
 }
 
-// resolve required Param/QueryParam for access via CII flags.
+// flagRequiredTypeVal; resolve required Param/QueryParam for access via CII flags.
 // Required Params are not generated as pointers
 // Special types like Number/UUID need to be converted from String
 // %s maps to specialTypeResult.Temps
@@ -372,7 +372,7 @@ func flagRequiredTypeVal(a *design.AttributeDefinition, field string) string {
 	}
 }
 
-// resolve required Param/QueryParam for access via CII flags.
+// flagTypeArrayVal; resolve required Param/QueryParam for access via CII flags.
 // Special types like Number/UUID need to be converted from String
 // %s maps to specialTypeResult.Temps
 func flagTypeArrayVal(a *design.AttributeDefinition, field string) string {
@@ -399,7 +399,7 @@ type specialTypeResult struct {
 	Output string
 }
 
-// generate the relation and output of specially typed Params that need
+// handleSpecialTypes; generate the relation and output of specially typed Params that need
 // custom convertion from String Flags to Rich objects in Client action
 //
 // tmp, err := uuidVal(cmd.X)
